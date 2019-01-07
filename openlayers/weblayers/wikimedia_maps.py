@@ -20,27 +20,31 @@ email                : pka at sourcepole.ch
  ***************************************************************************/
 """
 
-from weblayer import WebLayer3857
+from .weblayer import WebLayer3857
 
 
 class WikimediaLayer(WebLayer3857):
 
     emitsLoadEnd = True
 
-    def __init__(self, name, html, gdalTMS=None):
+    def __init__(self, name, html, xyzUrl=None):
         WebLayer3857.__init__(self, groupName="Wikimedia Maps",
                               groupIcon="wikimedia_icon.png",
-                              name=name, html=html, gdalTMS=gdalTMS)
+                              name=name, html=html, xyzUrl=xyzUrl)
 
 
 class WikimediaLabelledLayer(WikimediaLayer):
 
     def __init__(self):
-        WikimediaLayer.__init__(self, name='Wikimedia labelled layer', html='wikimedia.html', gdalTMS='wikimedia.xml')
+        tmsUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png'
+        WikimediaLayer.__init__(self, name='Wikimedia labelled layer',
+                                html='wikimedia.html', xyzUrl=tmsUrl)
 
 
 class WikimediaUnLabelledLayer(WikimediaLayer):
 
     def __init__(self):
-        WikimediaLayer.__init__(self, name='Wikimedia unlabelled layer', html='wikimedia_nolabels.html', gdalTMS='wikimedia_nolabels.xml')
-
+        tmsUrl = 'https://maps.wikimedia.org/osm/{z}/{x}/{y}.png'
+        WikimediaLayer.__init__(self, name='Wikimedia unlabelled layer',
+                                html='wikimedia_nolabels.html',
+                                xyzUrl=tmsUrl)

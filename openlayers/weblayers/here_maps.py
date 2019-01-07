@@ -23,11 +23,28 @@ email                : pka at sourcepole.ch
 from .weblayer import WebLayer3857
 
 
-class OlAppleiPhotoMapLayer(WebLayer3857):
+class OlHereMapsLayer(WebLayer3857):
 
     emitsLoadEnd = True
 
+    def __init__(self, name, html):
+        WebLayer3857.__init__(self, groupName="HERE Maps", groupIcon="here_icon.png",
+                              name=name, html=html)
+
+
+class OlHereRoadLayer(OlHereMapsLayer):
+
     def __init__(self):
-        WebLayer3857.__init__(self, groupName="Apple Maps",
-                              groupIcon="apple_icon.png",
-                              name='Apple iPhoto map', html='apple.html')
+        OlHereMapsLayer.__init__(self, name='HERE Normal Street Map', html='here_road.html')
+
+
+class OlHereAerialLayer(OlHereMapsLayer):
+
+    def __init__(self):
+        OlHereMapsLayer.__init__(self, name='HERE Satellite Map', html='here_aerial.html')
+
+
+class OlHereAerialLabelledLayer(OlHereMapsLayer):
+
+    def __init__(self):
+        OlHereMapsLayer.__init__(self, name='HERE Hybrid Map', html='here_aerial-labels.html')
