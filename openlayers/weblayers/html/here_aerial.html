@@ -30,18 +30,19 @@
             function layerLoadEnd(event) {
                 loadEnd = true;
             }
-            var hm = new OpenLayers.Layer.XYZ("HERE Satellite Map", "https://1.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ, {
-                sphericalMercator: true, wrapDateLine: true, // TODO: min zoom level 2
-                numZoomLevels: 20, //                attribution: "", // FIXME: attribution
-                eventListeners: {
+            var hm = new OpenLayers.Layer.XYZ("HERE Satellite Map", "https://1.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ", {
+                sphericalMercator: true
+                , wrapDateLine: true
+                , numZoomLevels: 20
+                , eventListeners: {
                     "loadstart": layerLoadStart
                     , "loadend": layerLoadEnd
                 }
             });
-        map.addLayer(hm);
-        map.addControl(new OpenLayers.Control.Attribution());
-        map.setCenter(new OpenLayers.LonLat(0, 0), 2);
-        oloMarker = new OlOverviewMarker(map, getPathUpper(document.URL) + '/x.png');
+            map.addLayer(hm);
+            map.addControl(new OpenLayers.Control.Attribution());
+            map.setCenter(new OpenLayers.LonLat(0, 0), 2);
+            oloMarker = new OlOverviewMarker(map, getPathUpper(document.URL) + '/x.png');
         }
     </script>
 </head>
