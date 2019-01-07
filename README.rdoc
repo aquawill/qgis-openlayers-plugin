@@ -1,5 +1,5 @@
-# qgis-openlayers-plugin-plus-HERE
-==Forked from https://github.com/sourcepole/qgis-openlayers-plugin
+==qgis-openlayers-plugin-plus-HERE
+Forked from https://github.com/sourcepole/qgis-openlayers-plugin
 
 qgis-openlayers-plugin is a QGIS[http://www.qgis.org/] plugin embedding OpenLayers functionality.
 
