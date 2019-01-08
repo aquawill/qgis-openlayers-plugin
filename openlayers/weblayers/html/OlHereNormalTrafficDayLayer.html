@@ -1,8 +1,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>HERE Satellite Map</title>
+    <title>HERE Real Time Traffic Map</title>
     <link rel="stylesheet" href="qgis.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="OpenLayers.js"></script>
     <script src="OlOverviewMarker.js"></script>
     <script type="text/javascript">
@@ -30,11 +31,13 @@
             function layerLoadEnd(event) {
                 loadEnd = true;
             }
-            var hm = new OpenLayers.Layer.XYZ("HERE Satellite Map", "https://1.traffic.maps.api.here.com/maptile/2.1/flowbasetile/newest/normal.traffic.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ", {
+            var sec = Math.floor(new Date().getTime() / 1000.0);
+            var hm = new OpenLayers.Layer.XYZ("HERE Satellite Map", "https://1.traffic.maps.api.here.com/maptile/2.1/flowbasetile/newest/normal.traffic.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&token=" + sec, {
                 sphericalMercator: true
                 , wrapDateLine: true
                 , numZoomLevels: 20
-				//, attribution: "©  2019 HERE"
+                    //, attribution: "©  2019 HERE"
+                    
                 , eventListeners: {
                     "loadstart": layerLoadStart
                     , "loadend": layerLoadEnd
@@ -44,6 +47,24 @@
             map.addControl(new OpenLayers.Control.Attribution());
             map.setCenter(new OpenLayers.LonLat(0, 0), 2);
             oloMarker = new OlOverviewMarker(map, getPathUpper(document.URL) + '/x.png');
+
+            function refresh() {
+                map.removeLayer(hm);
+                var sec = Math.floor(new Date().getTime() / 1000.0);
+                hm.setUrl("https://1.traffic.maps.api.here.com/maptile/2.1/flowbasetile/newest/normal.traffic.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&token=" + sec);
+                console.log(sec);
+                map.addLayer(hm);
+                hm.redraw();
+            }
+            setInterval(refresh, 30000);
+            /*
+            function refresh() {
+            	var dt = new Date();
+            	var sec = dt.getMilliseconds();
+            	hm.setUrl("https://1.traffic.maps.api.here.com/maptile/2.1/flowbasetile/newest/normal.traffic.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&token=" + sec);
+            	hm.refresh();
+            }
+            */
         }
     </script>
 </head>
