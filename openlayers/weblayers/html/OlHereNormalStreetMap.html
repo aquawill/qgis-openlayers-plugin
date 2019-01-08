@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>OpenLayers OpenStreetMap Layer</title>
+    <title>HERE Normal Street Map</title>
     <link rel="stylesheet" href="qgis.css" type="text/css">
     <script src="OpenLayers.js"></script>
     <script src="OlOverviewMarker.js"></script>
@@ -30,13 +30,13 @@
             function layerLoadEnd(event) {
                 loadEnd = true;
             }
-            var hm = new OpenLayers.Layer.XYZ("Stamen Toner/OSM map", "https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ", {
+            var hm = new OpenLayers.Layer.XYZ("HERE Normal Street Map", "https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&ppi=250", {
                 sphericalMercator: true
-                , wrapDateLine: true
-                , // TODO: min zoom level 2
+                , wrapDateLine: true, // TODO: min zoom level 2
                 numZoomLevels: 20
-                //,attribution: "©  2019 HERE"
-				,eventListeners: {
+                    //,attribution: "©  2019 HERE"
+                    
+                , eventListeners: {
                     "loadstart": layerLoadStart
                     , "loadend": layerLoadEnd
                 }

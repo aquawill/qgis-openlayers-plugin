@@ -32,7 +32,7 @@
                 loadEnd = true;
             }
             var sec = Math.floor(new Date().getTime() / 1000.0);
-            var hm = new OpenLayers.Layer.XYZ("HERE Satellite Map", "https://1.traffic.maps.api.here.com/maptile/2.1/flowbasetile/newest/normal.traffic.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&token=" + sec, {
+            var hm = new OpenLayers.Layer.XYZ("HERE Satellite Map", "https://1.traffic.maps.api.here.com/maptile/2.1/flowbasetile/newest/normal.traffic.day/${z}/${x}/${y}/256/png8?app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&ppi=250&token=" + sec, {
                 sphericalMercator: true
                 , wrapDateLine: true
                 , numZoomLevels: 20
