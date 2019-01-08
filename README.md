@@ -5,7 +5,7 @@ qgis-openlayers-plugin is a QGIS[http://www.qgis.org/] plugin embedding OpenLaye
 
 It uses WebKit to render web based map services using their official Javascript API.
 
-This repo adds 3 HERE map layers:
+This repo adds HERE map layers:
 1. Normal Street Map
 ![](https://i.imgur.com/tH5NI1d.jpg)
 
