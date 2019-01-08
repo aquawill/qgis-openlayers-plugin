@@ -28,7 +28,8 @@ class OlHereMapsLayer(WebLayer3857):
     emitsLoadEnd = True
 
     def __init__(self, name, html):
-        WebLayer3857.__init__(self, groupName="HERE Maps", groupIcon="here_icon.png",
+        WebLayer3857.__init__(self, groupName="HERE Maps",
+		                      groupIcon="here_icon.png",
                               name=name, html=html)
 
 
