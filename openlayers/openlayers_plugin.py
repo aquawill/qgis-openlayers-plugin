@@ -39,7 +39,7 @@ from .weblayers.google_maps import (OlGooglePhysicalLayer,
                                     OlGoogleSatelliteLayer)
 from .weblayers.osm import (OlOpenStreetMapLayer,
                             OlOSMHumanitarianDataModelLayer)
-from .weblayers.here_maps import (OlHereRoadLayer, OlHereAerialLayer, OlHereAerialLabelledLayer)
+from .weblayers.here_maps import (OlHereNormalStreetMap, OlHereSatelliteMap, OlHereHybridMap, OlHereNormalTrafficDayLayer)
 from .weblayers.osm_thunderforest import (OlOpenCycleMapLayer,
                                           OlOCMLandscapeLayer,
                                           OlOCMPublicTransportLayer,
@@ -125,9 +125,10 @@ class OpenlayersPlugin:
         self._olLayerTypeRegistry.register(OlBingAerialLabelledLayer())
 
 		# HERE Maps
-        self._olLayerTypeRegistry.register(OlHereRoadLayer())
-        self._olLayerTypeRegistry.register(OlHereAerialLayer())
-        self._olLayerTypeRegistry.register(OlHereAerialLabelledLayer())
+        self._olLayerTypeRegistry.register(OlHereNormalStreetMap())
+        self._olLayerTypeRegistry.register(OlHereSatelliteMap())
+        self._olLayerTypeRegistry.register(OlHereHybridMap())
+        self._olLayerTypeRegistry.register(OlHereNormalTrafficDayLayer())
         # HERE Maps
 		
         # Order from here on is free. Layers 0-14 should keep order for

@@ -32,19 +32,24 @@ class OlHereMapsLayer(WebLayer3857):
                               name=name, html=html)
 
 
-class OlHereRoadLayer(OlHereMapsLayer):
+class OlHereNormalStreetMap(OlHereMapsLayer):
 
     def __init__(self):
-        OlHereMapsLayer.__init__(self, name='HERE Normal Street Map', html='here_road.html')
+        OlHereMapsLayer.__init__(self, name='HERE Normal Street Map', html='OlHereNormalStreetMap.html')
 
 
-class OlHereAerialLayer(OlHereMapsLayer):
-
-    def __init__(self):
-        OlHereMapsLayer.__init__(self, name='HERE Satellite Map', html='here_aerial.html')
-
-
-class OlHereAerialLabelledLayer(OlHereMapsLayer):
+class OlHereSatelliteMap(OlHereMapsLayer):
 
     def __init__(self):
-        OlHereMapsLayer.__init__(self, name='HERE Hybrid Map', html='here_aerial-labels.html')
+        OlHereMapsLayer.__init__(self, name='HERE Satellite Map', html='OlHereSatelliteMap.html')
+
+
+class OlHereHybridMap(OlHereMapsLayer):
+
+    def __init__(self):
+        OlHereMapsLayer.__init__(self, name='HERE Hybrid Map', html='OlHereHybridMap.html')
+		
+class OlHereNormalTrafficDayLayer(OlHereMapsLayer):
+
+    def __init__(self):
+        OlHereMapsLayer.__init__(self, name='HERE Normal Traffic Day Map', html='OlHereNormalTrafficDayLayer.html')

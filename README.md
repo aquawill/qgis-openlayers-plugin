@@ -15,6 +15,8 @@ This repo adds 3 HERE map layers:
 3. Hybrid Map
 ![](https://i.imgur.com/vBtF3E6.jpg)
 
+4. Real Time Traffic Map
+![](https://i.imgur.com/stsoMmK.jpg)
 
 
 Installation
