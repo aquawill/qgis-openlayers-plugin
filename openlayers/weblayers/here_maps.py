@@ -36,6 +36,11 @@ class OlHereNormalStreetMap(OlHereMapsLayer):
 
     def __init__(self):
         OlHereMapsLayer.__init__(self, name='HERE Normal Street Map', html='OlHereNormalStreetMap.html')
+		
+class OlHereNormalStreetMapCHT(OlHereMapsLayer):
+
+    def __init__(self):
+        OlHereMapsLayer.__init__(self, name='HERE Normal Street Map (CHT)', html='OlHereNormalStreetMapCHT.html')
 
 
 class OlHereSatelliteMap(OlHereMapsLayer):
@@ -48,6 +53,11 @@ class OlHereHybridMap(OlHereMapsLayer):
 
     def __init__(self):
         OlHereMapsLayer.__init__(self, name='HERE Hybrid Map', html='OlHereHybridMap.html')
+		
+class OlHereHybridMapCHT(OlHereMapsLayer):
+
+    def __init__(self):
+        OlHereMapsLayer.__init__(self, name='HERE Hybrid Map (CHT)', html='OlHereHybridMapCHT.html')
 		
 class OlHereNormalTrafficDayLayer(OlHereMapsLayer):
 

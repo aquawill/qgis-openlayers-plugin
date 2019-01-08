@@ -30,10 +30,11 @@
             function layerLoadEnd(event) {
                 loadEnd = true;
             }
-            var hm = new OpenLayers.Layer.XYZ("HERE Hybrid Map", "https://1.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/${z}/${x}/${y}/256/png8?lg=dut&app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ", {
+            var hm = new OpenLayers.Layer.XYZ("HERE Hybrid Map", "https://1.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/${z}/${x}/${y}/256/png8?&app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ", {
                 sphericalMercator: true
                 , wrapDateLine: true,
                 numZoomLevels: 20,
+				//attribution: "©  2019 HERE",
                 eventListeners: {
                     "loadstart": layerLoadStart
                     , "loadend": layerLoadEnd
